@@ -39,9 +39,9 @@ if(isset($_POST['ins2'])) {
                     <div id="headercontent"> </div>
                     <div id="topnav">
                         <ul class="lavaLampWithImage" id="1">
-                            <li  ><a href="../cities.php">Города</a></li>
-                            <li class='current' ><a href="?page=2">Пользователи</a></li>
-                            <li  ><a href="?page=3">Поиск</a></li>
+                            <li  ><a href="../cities/cities.php">Города</a></li>
+                            <li class='current' ><a href="?users.php">Пользователи</a></li>
+                            <li  ><a href="../search/search.php">Поиск</a></li>
                         </ul>
                     </div>
                 </div>
@@ -50,13 +50,22 @@ if(isset($_POST['ins2'])) {
                         <div class="post">
                             <div class="postheader"> </div>
                             <div class="postcontent"> 
-                                <h2>Общее количество загрузок страницы = <b>35</b></h2>
+                            <?php
+
+if (!isset($_COOKIE['first1'])) $_COOKIE['first1'] = 0;
+if (!isset($_COOKIE['second2'])) $_COOKIE['second2'] = 0;
+if (!isset($_COOKIE['third3'])) $_COOKIE['third3'] = 0;
+$_COOKIE['second2']++;
+SetCookie('second2', $_COOKIE['second2'], time() + 3600);
+?>
+                                <h2>Общее количество загрузок страницы = <b><?php echo $_COOKIE['first1']+$_COOKIE['second2']+$_COOKIE['third3'];?></b></h2>
                             </div>
                             <div class="postbottom">
                                 <h3 style=" margin-left: 25px; ">Вы посещали эту страницу <b>
-                                        20                                    </b> раз</h3>
+                                        <?php echo $_COOKIE['second2']; ?>                                  </b> раз</h3>
                             </div>
                         </div>
+
                         <div class="post">
     <div class="postheader"> </div>
     <div class="postcontent"> 
@@ -162,12 +171,6 @@ if(isset($_POST['ins2'])) {
     </body>
 </html>
 
-
-
-
-
-
-
     <?php
 }
 if(isset($_POST['sort2'])) {
@@ -207,9 +210,9 @@ if(isset($_POST['sort2'])) {
                     <div id="headercontent"> </div>
                     <div id="topnav">
                         <ul class="lavaLampWithImage" id="1">
-                            <li  ><a href="../cities.php">Города</a></li>
-                            <li class='current' ><a href="users.php">Пользователи</a></li>
-                            <li  ><a href="?page=3">Поиск</a></li>
+                            <li  ><a href="../cities/cities.php">Города</a></li>
+                            <li class='current' ><a href="users/users.php">Пользователи</a></li>
+                            <li  ><a href="../search/search.php">Поиск</a></li>
                         </ul>
                     </div>
                 </div>
@@ -218,13 +221,22 @@ if(isset($_POST['sort2'])) {
                         <div class="post">
                             <div class="postheader"> </div>
                             <div class="postcontent"> 
-                                <h2>Общее количество загрузок страницы = <b>36</b></h2>
+                            <?php
+
+if (!isset($_COOKIE['first1'])) $_COOKIE['first1'] = 0;
+if (!isset($_COOKIE['second2'])) $_COOKIE['second2'] = 0;
+if (!isset($_COOKIE['third3'])) $_COOKIE['third3'] = 0;
+$_COOKIE['second2']++;
+SetCookie('second2', $_COOKIE['second2'], time() + 3600);
+?>
+                                <h2>Общее количество загрузок страницы = <b><?php echo $_COOKIE['first1']+$_COOKIE['second2']+$_COOKIE['third3'];?></b></h2>
                             </div>
                             <div class="postbottom">
                                 <h3 style=" margin-left: 25px; ">Вы посещали эту страницу <b>
-                                        21                                    </b> раз</h3>
+                                        <?php echo $_COOKIE['second2']; ?>                                  </b> раз</h3>
                             </div>
                         </div>
+
                         <div class="post">
     <div class="postheader"> </div>
     <div class="postcontent"> 
@@ -345,13 +357,6 @@ foreach($users as $arr => $value) {
     ";
 }
     ?>
-
-
-
-
-
-
-
                             <a name="down"></a>
             <h3><a href="#top">Наверх</a></h3>    </div>
     <div class="postbottom">
@@ -420,8 +425,4 @@ foreach($users as $arr => $value) {
         </div>
     </body>
 </html>
-
-
-
-
 <?php } ?>

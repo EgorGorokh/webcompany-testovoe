@@ -2,14 +2,7 @@
 
 require_once '../DataBase.php';
 
-
-
 $id=$_POST['id'];
-
-
 $dataBase=new DataBase();
 $connect=$dataBase->getConnection();
-
 $dataBase->deleteUser($connect, $id);
-
-?>

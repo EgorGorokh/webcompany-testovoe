@@ -32,7 +32,7 @@
                     <div id="headercontent"> </div>
                     <div id="topnav">
                         <ul class="lavaLampWithImage" id="1">
-                            <li  ><a href="../cities.php">Города</a></li>
+                            <li  ><a href="../cities/cities.php">Города</a></li>
                             <li class='current' ><a href="users.php">Пользователи</a></li>
                             <li  ><a href="../search/search.php">Поиск</a></li>
                         </ul>

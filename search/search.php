@@ -32,7 +32,7 @@
                     <div id="headercontent"> </div>
                     <div id="topnav">
                         <ul class="lavaLampWithImage" id="1">
-                            <li  ><a href="../cities.php">Города</a></li>
+                            <li  ><a href="../cities/cities.php">Города</a></li>
                             <li  ><a href="../users/users.php">Пользователи</a></li>
                             <li class='current' ><a href="search.php">Поиск</a></li>
                         </ul>
@@ -43,29 +43,21 @@
                         <div class="post">
                             <div class="postheader"> </div>
                             <div class="postcontent"> 
-                            <?php
-
+<?php
 if (!isset($_COOKIE['first1'])) $_COOKIE['first1'] = 0;
 if (!isset($_COOKIE['second2'])) $_COOKIE['second2'] = 0;
 if (!isset($_COOKIE['third3'])) $_COOKIE['third3'] = 0;
 $_COOKIE['third3']++;
 SetCookie('third3', $_COOKIE['third3'], time() + 3600);
-
 ?>
                                 <h2>Общее количество загрузок страницы = <b><?php echo $_COOKIE['third3']+$_COOKIE['first1']+$_COOKIE['second2'];?></b></h2>
                             </div>
                             <div class="postbottom">
                                 <h3 style=" margin-left: 25px; ">Вы посещали эту страницу <b>
-                                        <?php  echo $_COOKIE['third3'];?>                              </b> раз</h3>
+                                        <?php  echo $_COOKIE['third3'];?> </b> раз</h3>
                             </div>
                         </div>
                         
-
-        
-
-
-
-
 <!--форма для поиска по имени и фамилии-->
 <form action="formSearch.php" method="post">
     <div class='form'>
@@ -78,9 +70,7 @@ SetCookie('third3', $_COOKIE['third3'], time() + 3600);
 </form>
 
 <?php 
-
 if(isset($_COOKIE["search"])){
-
 require_once '../DataBase.php';
 $dataBase=new DataBase();
 $connect=$dataBase->getConnection();
@@ -99,12 +89,6 @@ foreach($users as $arr => $value) {
     ";
 }}
 ?>
-
-
-
-
-
-
 
                     </div>
                     <div id="sidebar">

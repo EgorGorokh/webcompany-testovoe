@@ -1,7 +1,7 @@
 <?php
 
-if(isset($_POST['sort'])){
-   ?>
+if(isset($_POST['sort'])) {
+    ?>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -9,11 +9,11 @@ if(isset($_POST['sort'])){
     <head>
         <title>Тестовое Гороха</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="style.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="js/jquery-1.1.3.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery.easing.min.js"></script>
-        <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
-        <script type="text/javascript" src="index.js"></script>
+        <link href="../style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../js/jquery-1.1.3.1.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.lavalamp.min.js"></script>
+        <script type="text/javascript" src="../index.js"></script>
         <script type="text/javascript">
             $(function () {
                 $("#1, #2, #3").lavaLamp({
@@ -25,14 +25,14 @@ if(isset($_POST['sort'])){
                 });
             });
         </script>
-        <link href="lavalamp.css" rel="stylesheet" type="text/css" />
+        <link href="../lavalamp.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="wrap">
             <div id="topbg"> </div>
             <div id="wrap2">
                 <div id="topbar">
-                    <img style="float:left;margin:0 150px 0 20px;height:65px;" src="images/logo.svg" alt="logo"> 
+                    <img style="float:left;margin:0 150px 0 20px;height:65px;" src="../images/logo.svg" alt="logo"> 
                         <h1 id="sitename"><a href="#">Тестовое задание</a> <span class="description"></span></h1>
                 </div>
                 <div id="header">
@@ -40,8 +40,8 @@ if(isset($_POST['sort'])){
                     <div id="topnav">
                         <ul class="lavaLampWithImage" id="1">
                             <li class='current' ><a href="cities.php">Города</a></li>
-                            <li  ><a href="users.php">Пользователи</a></li>
-                            <li  ><a href="search.php">Поиск</a></li>
+                            <li  ><a href="../users/users.php">Пользователи</a></li>
+                            <li  ><a href="../search/search.php">Поиск</a></li>
                         </ul>
                     </div>
                 </div>
@@ -50,13 +50,31 @@ if(isset($_POST['sort'])){
                         <div class="post">
                             <div class="postheader"> </div>
                             <div class="postcontent"> 
-                                <h2>Общее количество загрузок страницы = <b>32</b></h2>
+
+
+                            <?php
+if (!isset($_COOKIE['first1'])) {
+    $_COOKIE['first1'] = 0;
+}
+if (!isset($_COOKIE['second2'])) {
+    $_COOKIE['second2'] = 0;
+}
+if (!isset($_COOKIE['third3'])) {
+    $_COOKIE['third3'] = 0;
+}
+$_COOKIE['first1']++;
+    SetCookie('first1', $_COOKIE['first1'], time() + 3600);
+    ?>
+                                <h2>Общее количество загрузок страницы = <b><?php echo $_COOKIE['first1']+$_COOKIE['second2']+$_COOKIE['third3'] ?> </b></h2>
                             </div>
                             <div class="postbottom">
                                 <h3 style=" margin-left: 25px; ">Вы посещали эту страницу <b>
-                                        18                                    </b> раз</h3>
+                                <?php echo $_COOKIE['first1'] ?>                               </b> раз</h3>
                             </div>
                         </div>
+
+
+
                         <div class="post">
     <div class="postheader"> </div>
     <div class="postcontent"> 
@@ -121,15 +139,15 @@ if(isset($_POST['sort'])){
 
 
 
-            <?php 
-            require_once 'DataBase.php';
-            $dataBase=new DataBase();
-            $connect=$dataBase->getConnection();
-            $cities=$dataBase->getCities($connect);
+            <?php
+            require_once '../DataBase.php';
+    $dataBase=new DataBase();
+    $connect=$dataBase->getConnection();
+    $cities=$dataBase->getCities($connect);
 
-            foreach($cities as $arr => $value){
-                echo 
-                "<div class='cpsity' >
+    foreach($cities as $arr => $value) {
+        echo
+        "<div class='cpsity' >
                 <h3>{$value['name']}</h3>
                 
                 <span>
@@ -147,9 +165,9 @@ if(isset($_POST['sort'])){
                     </form>
                 </span>
             </div>";
-            }
-        
-            ?>
+    }
+
+    ?>
 
 
 
@@ -235,10 +253,10 @@ if(isset($_POST['ins'])) {
     <head>
         <title>Тестовое Гороха</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="style.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="js/jquery-1.1.3.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery.easing.min.js"></script>
-        <script type="text/javascript" src="js/jquery.lavalamp.min.js"></script>
+        <link href="../style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../js/jquery-1.1.3.1.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.easing.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.lavalamp.min.js"></script>
         <script type="text/javascript">
             $(function () {
                 $("#1, #2, #3").lavaLamp({
@@ -250,23 +268,23 @@ if(isset($_POST['ins'])) {
                 });
             });
         </script>
-        <link href="lavalamp.css" rel="stylesheet" type="text/css" />
+        <link href="../lavalamp.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="wrap">
             <div id="topbg"> </div>
             <div id="wrap2">
                 <div id="topbar">
-                    <img style="float:left;margin:0 150px 0 20px;height:65px;" src="images/logo.svg" alt="logo"> 
+                    <img style="float:left;margin:0 150px 0 20px;height:65px;" src="../images/logo.svg" alt="logo"> 
                         <h1 id="sitename"><a href="#">Тестовое задание</a> <span class="description"></span></h1>
                 </div>
                 <div id="header">
                     <div id="headercontent"> </div>
                     <div id="topnav">
                         <ul class="lavaLampWithImage" id="1">
-                            <li class='current' ><a href="?page=1">Города</a></li>
-                            <li  ><a href="?page=2">Пользователи</a></li>
-                            <li  ><a href="?page=3">Поиск</a></li>
+                            <li class='current' ><a href="cities.php">Города</a></li>
+                            <li  ><a href="../users/users.php">Пользователи</a></li>
+                            <li  ><a href="../search/search.php">Поиск</a></li>
                         </ul>
                     </div>
                 </div>
