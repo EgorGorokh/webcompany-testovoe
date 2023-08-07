@@ -10,9 +10,9 @@ class DataBase
     public function getConnection()
     {
         $this->servername ='localhost';
-        $this->username='root';
-        $this->password='root';
-        $this->dbname='test_web_company';
+        $this->username='cg21708_gorokh';
+        $this->password='egorik2017';
+        $this->dbname='cg21708_gorokh';
 
         try {
             $connect=new mysqli($this->servername, $this->username, $this->password, $this->dbname);
